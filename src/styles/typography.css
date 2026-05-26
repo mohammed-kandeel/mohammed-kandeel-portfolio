@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'Playfair';
+  src: url('/assets/fonts/Playfair/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Playfair';
+  src: url('/assets/fonts/Playfair/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    font-family: 'Playfair', serif;
+  }
+
+  body {
+    @apply italic;
+  }
+}

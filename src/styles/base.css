@@ -1,0 +1,24 @@
+html {
+  scroll-behavior: smooth;
+}
+.container {
+  @apply mx-auto max-w-7xl px-6;
+}
+button,
+a {
+  @apply cursor-pointer;
+}
+
+@layer components {
+  .text-linear {
+    @apply bg-linear-to-r bg-clip-text text-transparent;
+  }
+
+  .main-btn {
+    @apply flex items-center gap-2 rounded-full bg-linear-to-r from-cyan-500 to-blue-600 px-6 py-3 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:from-cyan-600 hover:to-blue-700;
+  }
+
+  .main-section {
+    @apply bg-primary-900 border-primary-700 relative flex min-h-screen items-center justify-center overflow-hidden border-t py-24;
+  }
+}

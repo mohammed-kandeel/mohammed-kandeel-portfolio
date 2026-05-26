@@ -1,0 +1,36 @@
+<nav
+  class="bg-primary-900/70 border-primary-500/40 fixed top-0 right-0 left-0 z-50 border-b backdrop-blur-md"
+>
+  <div class="container flex h-20 items-center justify-between">
+    <button
+      (click)="onScrollToSection('home')"
+      class="text-linear from-secondary-400 to-secondary-600 text-2xl font-bold tracking-tight"
+    >
+      Mohammed Kandeel
+    </button>
+
+    <nav class="text hidden items-center space-x-8 font-medium text-gray-400 md:flex">
+      @for (sec of sections; track $index) {
+        <button
+          (click)="onScrollToSection(sec)"
+          [class]="activeAnchor() === sec ? 'text-secondary-400' : ''"
+          class="hover:text-secondary-400 group relative py-2 capitalize transition-colors duration-300"
+        >
+          {{ sec }}
+          <span
+            [class]="activeAnchor() === sec ? 'w-full' : ''"
+            class="bg-secondary-400 absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full"
+          ></span>
+        </button>
+      }
+    </nav>
+
+    <!-- Toggle Button -->
+    <button
+      (click)="onToggleSidebar()"
+      class="hover:text-secondary-400 text-2xl text-gray-400 md:hidden"
+    >
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</nav>

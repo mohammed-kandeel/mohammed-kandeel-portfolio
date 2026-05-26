@@ -1,0 +1,55 @@
+<div
+  (click)="onCloseSidebar()"
+  [class]="isOpen() ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'"
+  class="fixed top-0 right-0 bottom-0 left-0 z-50 bg-black/50 backdrop-blur-md transition-all duration-600 ease-in-out md:hidden"
+></div>
+
+<aside
+  [class]="isOpen() ? 'right-0 rotate-0' : 'right-[-200%] rotate-12'"
+  class="bg-primary-700/95 border-primary-500 fixed top-0 bottom-0 z-51 flex max-h-screen w-80 flex-col justify-between overflow-y-auto border-l py-6 transition-all duration-500 ease-in-out md:hidden"
+>
+  <div>
+    <div class="border-primary-600 flex items-center justify-between border-b px-4 pb-6">
+      <h2 class="text-linear from-secondary-400 to-secondary-600 text-2xl font-semibold">
+        Mohamed Kandeel
+      </h2>
+
+      <button
+        (click)="onCloseSidebar()"
+        class="flex h-7.5 w-7.5 items-center justify-center rounded-lg text-xl text-gray-500 transition-colors duration-300 hover:bg-red-500/20 hover:text-red-400"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="px-3 py-5">
+      <h4 class="mb-3 flex items-center gap-2 font-semibold tracking-wider text-gray-400 uppercase">
+        <i class="fa-solid fa-compass text-secondary-400"></i>
+        Explore
+      </h4>
+      <ul class="flex flex-col gap-3 px-2">
+        @for (sec of sections; track $index) {
+          <li>
+            <button
+              (click)="onCloseSidebar(); onScrollToSection(sec)"
+              class="bg-primary-600 text-secondary-300 hover:bg-primary-500 hover:text-secondary-400 w-full rounded-lg px-4 py-3 text-start transition-all duration-300"
+            >
+              {{ sec }}
+            </button>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+
+  <!-- contact -->
+  <div class="p-3">
+    <a
+      [href]="'mailto:' + sociol().email"
+      class="bg-primary-600 text-secondary-300 hover:bg-primary-500 hover:text-secondary-400 block rounded-lg px-4 py-3 transition-all duration-300"
+    >
+      <i class="fa-solid fa-envelope text-secondary-400"></i>
+      {{ sociol().email }}
+    </a>
+  </div>
+</aside>
